@@ -264,18 +264,18 @@
             <img src="https://i.ibb.co/0pCRzt0b/8284c3c0-29c5-11ed-b68f-96d3f09e23e7.jpg" 
                  alt="Logo Shazay" 
                  class="w-14 h-14 rounded-full object-cover" /> 
-            <span class="text-base md:text-lg font-medium text-slate-800 whitespace-nowrap">
+            <span class="text-base lg:text-lg font-medium text-slate-800 whitespace-nowrap">
                 Takaful Prudential
             </span>
         </a>
 
-        <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-200" aria-label="Menu">
+        <button id="menuBtn" class="lg:hidden p-2 rounded-lg border border-slate-200" aria-label="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
         </button>
 
-        <ul id="menu" class="hidden md:flex items-center gap-6 text-sm">
+        <ul id="menu" class="hidden lg:flex items-center gap-6 text-sm">
             <li><a class="hover:text-sky-600" href="#kalkulator">Pelan</a></li>
             <li><a class="hover:text-sky-600" href="#manfaat">Manfaat</a></li>
             <li><a class="hover:text-sky-600" href="#soalan">FAQ</a></li>
@@ -328,6 +328,15 @@
                             <option value="250">Plan 250</option>
                             <option value="300">Plan 300</option>
                             <option value="400">Plan 400</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="hibah-type-area" style="display: none;">
+                        <label for="hibah-type-selector">2. Pilih Jenis Hibah:</label>
+                        <select id="hibah-type-selector" class="w-full rounded-xl border border-slate-300 px-3 py-2">
+                            <option value="">-- Sila Pilih Jenis --</option>
+                            <option value="biasa">Hibah Biasa</option>
+                            <option value="berganda">Hibah Berganda</option>
                         </select>
                     </div>
 
@@ -792,39 +801,84 @@
         </ul>
     </div>
 
-    <div data-plan-key="hibah-sahaja-1" data-price="RM 80 - RM 120 / bulan" data-popular="false">
+    <div data-plan-key="hibah-sahaja-biasa-1" data-price="RM 80 - RM 120 / bulan" data-popular="false">
         <ul>
-            <li>Perlindungan Hibah Asas: RM 250,000</li>
+            <li>Perlindungan Hibah Biasa</li>
             <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
             <li>Penyakit Kritikal</li>
             <li>Kemalangan</li>
             <li>(Anggaran untuk Kelas 1)</li>
         </ul>
     </div>
-    <div data-plan-key="hibah-sahaja-2" data-price="RM 100 - RM 140 / bulan" data-popular="false">
+    <div data-plan-key="hibah-sahaja-biasa-2" data-price="RM 100 - RM 140 / bulan" data-popular="false">
         <ul>
-            <li>Perlindungan Hibah Asas: RM 250,000</li>
+            <li>Perlindungan Hibah Biasa</li>
             <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
             <li>Penyakit Kritikal</li>
             <li>Kemalangan</li>
             <li>(Anggaran untuk Kelas 2)</li>
         </ul>
     </div>
-    <div data-plan-key="hibah-sahaja-3" data-price="RM 130 - RM 170 / bulan" data-popular="false">
+    <div data-plan-key="hibah-sahaja-biasa-3" data-price="RM 130 - RM 170 / bulan" data-popular="false">
         <ul>
-            <li>Perlindungan Hibah Asas: RM 250,000</li>
+            <li>Perlindungan Hibah Biasa</li>
             <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
             <li>Penyakit Kritikal</li>
             <li>Kemalangan</li>
             <li>(Anggaran untuk Kelas 3)</li>
         </ul>
     </div>
-    <div data-plan-key="hibah-sahaja-4" data-price="RM 200 - RM 250+ / bulan" data-popular="false">
+    <div data-plan-key="hibah-sahaja-biasa-4" data-price="RM 200 - RM 250+ / bulan" data-popular="false">
         <ul>
-            <li>Perlindungan Hibah Asas: RM 150,000 (Mungkin dikurangkan)</li>
+            <li>Perlindungan Hibah Biasa</li>
             <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
             <li>Penyakit Kritikal</li>
             <li>Kemalangan</li>
+            <li>(Anggaran untuk Kelas 4, Perlu Semakan)</li>
+        </ul>
+    </div>
+
+    <div data-plan-key="hibah-sahaja-berganda-1" data-price="RM 110 - RM 150 / bulan" data-popular="false">
+        <ul>
+            <li>Perlindungan Hibah Berganda</li>
+            <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
+            <li>Penyakit Kritikal</li>
+            <li>Kemalangan (Manfaat Berganda)</li>
+            <li><b>Nota: Minimum RM250,000</b></li>
+            <li><b>Promosi Year End Sale!</b></li>
+            <li>(Anggaran untuk Kelas 1)</li>
+        </ul>
+    </div>
+    <div data-plan-key="hibah-sahaja-berganda-2" data-price="RM 140 - RM 180 / bulan" data-popular="false">
+        <ul>
+            <li>Perlindungan Hibah Berganda</li>
+            <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
+            <li>Penyakit Kritikal</li>
+            <li>Kemalangan (Manfaat Berganda)</li>
+            <li><b>Nota: Minimum RM250,000</b></li>
+            <li><b>Promosi Year End Sale!</b></li>
+            <li>(Anggaran untuk Kelas 2)</li>
+        </ul>
+    </div>
+    <div data-plan-key="hibah-sahaja-berganda-3" data-price="RM 180 - RM 220 / bulan" data-popular="false">
+        <ul>
+            <li>Perlindungan Hibah Berganda</li>
+            <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
+            <li>Penyakit Kritikal</li>
+            <li>Kemalangan (Manfaat Berganda)</li>
+            <li><b>Nota: Minimum RM250,000</b></li>
+            <li><b>Promosi Year End Sale!</b></li>
+            <li>(Anggaran untuk Kelas 3)</li>
+        </ul>
+    </div>
+    <div data-plan-key="hibah-sahaja-berganda-4" data-price="RM 250 - RM 300+ / bulan" data-popular="false">
+        <ul>
+            <li>Perlindungan Hibah Berganda</li>
+            <li>Manfaat Kematian & Hilang Upaya Penuh (TPD)</li>
+            <li>Penyakit Kritikal</li>
+            <li>Kemalangan (Manfaat Berganda)</li>
+            <li><b>Nota: Minimum RM250,000</b></li>
+            <li><b>Promosi Year End Sale!</b></li>
             <li>(Anggaran untuk Kelas 4, Perlu Semakan)</li>
         </ul>
     </div>
@@ -896,29 +950,37 @@
     function updateInputVisibility() {
         const selectedPlan = document.getElementById('plan-selector').value;
         const planLevelArea = document.getElementById('plan-level-area');
+        const hibahTypeArea = document.getElementById('hibah-type-area'); // New
         const occArea = document.getElementById('occupation-class-area');
         
+        // Reset all secondary dropdowns
         document.getElementById('plan-level-selector').value = '';
+        document.getElementById('hibah-type-selector').value = ''; // New
         document.getElementById('occupation-class-selector').value = '';
+        
+        planLevelArea.style.display = 'none';
+        hibahTypeArea.style.display = 'none'; // New
+        occArea.style.display = 'none';
 
-        if (!selectedPlan) {
-            planLevelArea.style.display = 'none';
-            occArea.style.display = 'none';
-        } else {
-            occArea.style.display = 'block';
+        if (selectedPlan) {
+            occArea.style.display = 'block'; // Occupation always shows if a plan is selected
             
             if (selectedPlan === 'hibah-sahaja') {
                 planLevelArea.style.display = 'none';
+                hibahTypeArea.style.display = 'block'; // Show Hibah Type
             } else {
-                planLevelArea.style.display = 'block';
+                planLevelArea.style.display = 'block'; // Show Plan Level
+                hibahTypeArea.style.display = 'none';
             }
         }
+        
         clearDetails();
     }
 
     function displayPlanDetails() {
         const selectedPlan = document.getElementById('plan-selector').value;
         const selectedPlanLevel = document.getElementById('plan-level-selector').value;
+        const selectedHibahType = document.getElementById('hibah-type-selector').value; // New
         const selectedOccClass = document.getElementById('occupation-class-selector').value;
         const outputArea = document.getElementById('plan-details-output');
         
@@ -938,8 +1000,14 @@
         }
 
         if (selectedPlan === 'hibah-sahaja') {
-            dataKey = `${selectedPlan}-${selectedOccClass}`;
-            fullPlanName = `${planNameOption} (Kelas ${selectedOccClass})`;
+            if (!selectedHibahType) { // New check
+                outputArea.innerHTML = `<div class="placeholder-text">Sila pilih Jenis Hibah anda.</div>`;
+                return;
+            }
+            dataKey = `${selectedPlan}-${selectedHibahType}-${selectedOccClass}`; // Updated dataKey
+            const hibahTypeOption = document.querySelector(`#hibah-type-selector option[value="${selectedHibahType}"]`).textContent;
+            fullPlanName = `${planNameOption} - ${hibahTypeOption} (Kelas ${selectedOccClass})`; // Updated name
+
         } else {
             if (!selectedPlanLevel) {
                 outputArea.innerHTML = `<div class="placeholder-text">Sila pilih plan untuk melihat butiran.</div>`;
@@ -996,6 +1064,7 @@
         
         const planSelector = document.getElementById('plan-selector');
         const planLevelSelector = document.getElementById('plan-level-selector');
+        const hibahTypeSelector = document.getElementById('hibah-type-selector'); // New
         const occClassSelector = document.getElementById('occupation-class-selector');
 
         planSelector.addEventListener('change', () => {
@@ -1004,6 +1073,7 @@
         });
 
         planLevelSelector.addEventListener('change', displayPlanDetails);
+        hibahTypeSelector.addEventListener('change', displayPlanDetails); // New
         occClassSelector.addEventListener('change', displayPlanDetails);
 
         const myWhatsAppNumber = '601125517767';
@@ -1018,6 +1088,7 @@
             const selectedOccClass = occClassSelector.value;
             const selectedPlan = planSelector.value;
             const selectedPlanLevel = planLevelSelector.value;
+            const selectedHibahType = hibahTypeSelector.value; // New
 
             let planDetails = "Tiada pilihan pelan dibuat.";
             
@@ -1028,7 +1099,12 @@
                     planDetails = `Pelan: ${planNameOption} (Kelas Pekerjaan belum dipilih)`;
                 }
                 else if (selectedPlan === 'hibah-sahaja') {
-                    planDetails = `Pilihan Pelan: ${planNameOption} (Kelas ${selectedOccClass})`;
+                    if (!selectedHibahType) {
+                        planDetails = `Pilihan Pelan: ${planNameOption} (Kelas ${selectedOccClass}) - (Jenis Hibah belum dipilih)`;
+                    } else {
+                        const hibahTypeOption = document.querySelector(`#hibah-type-selector option[value="${selectedHibahType}"]`).textContent;
+                        planDetails = `Pilihan Pelan: ${planNameOption} - ${hibahTypeOption} (Kelas ${selectedOccClass})`; // Updated
+                    }
                 } 
                 else if (selectedPlanLevel) {
                     planDetails = `Pilihan Pelan: ${planNameOption} - Plan ${selectedPlanLevel} (Kelas ${selectedOccClass})`;
