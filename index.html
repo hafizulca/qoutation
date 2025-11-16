@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilih Pelan Takaful Dua Peringkat</title>
+    <title>Pilih Pelan Takaful Anda - Interaktif WhatsApp</title>
     <style>
-        /* CSS untuk Reka Bentuk Dropdown dan Paparan Plan */
+        /* --- CSS STYLING --- */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -19,6 +19,7 @@
             margin-bottom: 30px;
         }
 
+        /* Container untuk Dropdown Pelan & Kelas */
         .selection-container {
             max-width: 500px;
             margin: 0 auto 30px auto;
@@ -45,11 +46,69 @@
             background-color: #f9f9f9;
         }
 
-        /* Kawasan Output */
+        /* --- CSS Borang Quick Fill --- */
+        .quick-fill-form {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #1a73e8;
+        }
+
+        .quick-fill-form h3 {
+            text-align: center;
+            color: #1a73e8;
+            margin-top: 0;
+        }
+
+        .quick-fill-form p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50; /* Hijau WhatsApp */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* --- CSS Output Butiran Pelan --- */
         .details-output {
             max-width: 500px;
             margin: 0 auto;
-            min-height: 250px; /* Jaga ruang supaya tidak melompat */
+            min-height: 250px;
             text-align: center;
         }
 
@@ -59,7 +118,6 @@
             font-style: italic;
         }
 
-        /* Gaya Kad Plan Yang Dipaparkan */
         .plan-card {
             background-color: #fff;
             border: 2px solid #ddd;
@@ -137,6 +195,11 @@
         .plan-card .popular-btn:hover {
             background-color: #e68900;
         }
+
+        /* CSS untuk Output Nombor Telefon (Kini tidak digunakan untuk memaparkan nombor, tetapi sebagai placeholder) */
+        .contact-output {
+            display: none !important; /* Sembunyikan sepenuhnya, kerana ia dialihkan ke WhatsApp */
+        }
     </style>
 </head>
 <body>
@@ -164,6 +227,30 @@
                 <option value="4">Kelas 4</option>
             </select>
         </div>
+    </div>
+
+    <div class="quick-fill-form">
+        <h3>Langkah Pantas: Minta Maklumat Lanjut</h3>
+        <p>Isi borang ini dan tekan hantar untuk terus WhatsApp kami!</p>
+        <form id="quickContactForm">
+            <div class="form-group">
+                <label for="fullName">Nama Penuh:</label>
+                <input type="text" id="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="birthDate">Tarikh Lahir:</label>
+                <input type="date" id="birthDate" required>
+            </div>
+            <div class="form-group">
+                <label for="occupation">Pekerjaan:</label>
+                <input type="text" id="occupation" required>
+            </div>
+            <div class="form-group">
+                <label for="workPhone">No. Telefon (Kerja/Peribadi):</label>
+                <input type="tel" id="workPhone" pattern="[0-9]{10,12}" placeholder="Cth: 01X-XXXXXXX" required>
+            </div>
+            <button type="submit" class="submit-btn">📲 WhatsApp Sekarang</button>
+        </form>
     </div>
 
     <div id="plan-details-output" class="details-output">
@@ -194,6 +281,8 @@
         </div>
     
     <script>
+        // --- JAVASCRIPT LOGIC ---
+        
         function clearDetails() {
             const outputArea = document.getElementById('plan-details-output');
             outputArea.innerHTML = '<p class="placeholder-text">Sila buat pilihan anda dari menu di atas untuk melihat butiran penuh pelan dan harga.</p>';
@@ -204,14 +293,12 @@
             const classArea = document.getElementById('class-selection-area');
             const classSelector = document.getElementById('class-selector');
 
-            clearDetails(); // Kosongkan butiran lama
+            clearDetails(); 
 
             if (selectedPlan) {
-                // Tunjukkan dropdown Kelas dan tetapkan semula nilainya
                 classArea.style.display = 'block';
-                classSelector.value = ''; // Reset nilai kelas
+                classSelector.value = ''; 
             } else {
-                // Sembunyikan dropdown Kelas jika tiada pelan dipilih
                 classArea.style.display = 'none';
             }
         }
@@ -224,24 +311,19 @@
             clearDetails(); 
 
             if (!selectedPlan || !selectedClass) {
-                // Hentikan dan kekal kosong jika salah satu belum dipilih
                 return;
             }
 
-            // Cari data berdasarkan kombinasi Plan-Kelas (cth: "kubu-3")
             const dataKey = `${selectedPlan}-${selectedClass}`;
             const planDataContainer = document.querySelector(`div[data-plan-class="${dataKey}"]`);
             
             if (planDataContainer) {
-                // Ambil nama plan dari option dan gabungkan dengan kelas
                 const planNameOption = document.querySelector(`#plan-selector option[value="${selectedPlan}"]`).textContent;
                 const price = planDataContainer.getAttribute('data-price');
                 const isPopular = planDataContainer.getAttribute('data-popular') === 'true';
 
-                // Bina tajuk Plan + Kelas (cth: "3. Kubu (Pilihan Ramai ⭐) - Kelas 3")
                 const fullPlanName = `${planNameOption} - Kelas ${selectedClass}`;
                 
-                // Bina kandungan untuk output
                 let content = `
                     <div class="plan-card ${isPopular ? 'popular' : ''}">
                         <h2>${fullPlanName}</h2>
@@ -259,10 +341,37 @@
                     outputArea.classList.remove('popular');
                 }
             } else {
-                 // Jika kombinasi data tidak wujud
                 outputArea.innerHTML = `<p class="placeholder-text">Butiran Pelan ${dataKey} belum tersedia. Sila pilih kombinasi lain atau hubungi ejen.</p>`;
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('quickContactForm');
+            
+            // --- NOMBOR TELEFON ANDA TELAH DIKEMASKINI ---
+            const myWhatsAppNumber = '601125517767'; 
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault(); 
+                
+                const name = document.getElementById('fullName').value;
+                const dob = document.getElementById('birthDate').value;
+                const occupation = document.getElementById('occupation').value; // Ambil nilai Pekerjaan
+                const phone = document.getElementById('workPhone').value;
+                
+                // Bina mesej WhatsApp yang telah diisi, termasuk Pekerjaan
+                const message = `Salam. Saya ${name} ingin mendapatkan maklumat lanjut mengenai pelan Takaful. %0A%0A*Maklumat Saya:*%0A Tarikh Lahir: ${dob}%0A Pekerjaan: ${occupation}%0A No. Telefon: ${phone}%0A%0A Harap dapat hubungi saya segera. Terima kasih.`;
+                
+                const encodedMessage = encodeURIComponent(message);
+
+                // Buka WhatsApp
+                const whatsappURL = `https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`;
+                window.open(whatsappURL, '_blank');
+                
+                // Kosongkan borang
+                contactForm.reset();
+            });
+        });
     </script>
 
 </body>
